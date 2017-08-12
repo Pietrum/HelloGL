@@ -1,10 +1,12 @@
 #version 330 core
 
-in vec4 s_fColor;
+layout (location = 0) out vec4 color;
 
-out vec4 color;
+uniform vec4 colour;
+uniform vec2 light_pos;
+
+in vec4 fs_Position;
 
 void main() {
-    // output color
-    color = s_fColor;
+    color = colour / length(fs_Position.xy - light_pos);
 }

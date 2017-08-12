@@ -59,6 +59,26 @@ void Shader::enable() const {
     glUseProgram(m_ShaderID);
 }
 
+void Shader::setUniform1i(const GLchar* name, int value) {
+    glUniform1i(getUniformLocation(name), value);
+}
+
+void Shader::setUniform1f(const GLchar* name, float value) {
+    glUniform1f(getUniformLocation(name), value);
+}
+
+void Shader::setUniform2f(const GLchar* name, Vec2& vector) {
+    glUniform2f(getUniformLocation(name), vector.x, vector.y);
+}
+
+void Shader::setUniform3f(const GLchar* name, Vec3& vector) {
+    glUniform3f(getUniformLocation(name), vector.x, vector.y, vector.z);
+}
+
+void Shader::setUniform4f(const GLchar* name, Vec4& vector) {
+    glUniform4f(getUniformLocation(name), vector.x, vector.y, vector.z, vector.w);
+}
+
 void Shader::setUniformMat4(const GLchar* name, const Mat4& matrix) {
     glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, matrix.e);
 }

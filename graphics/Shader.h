@@ -4,6 +4,9 @@
 #include <iostream>
 #include <GL/glew.h>
 
+#include "../maths/Vec2.h"
+#include "../maths/Vec3.h"
+#include "../maths/Vec4.h"
 #include "../maths/Mat4.h"
 #include "../utils/File.h"
 
@@ -23,7 +26,12 @@ class Shader {
     ~Shader();
     void enable() const;
 
-    void setUniformMat4(const GLchar* name, const Mat4& matrix);
+    void setUniform1i(const GLchar*, int);
+    void setUniform1f(const GLchar*, float);
+    void setUniform2f(const GLchar*, Vec2&);
+    void setUniform3f(const GLchar*, Vec3&);
+    void setUniform4f(const GLchar*, Vec4&);
+    void setUniformMat4(const GLchar*, const Mat4&);
 
 };
 

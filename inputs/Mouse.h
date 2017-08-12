@@ -10,9 +10,9 @@ namespace Input {
 
     class Mouse {
         static bool m_Buttons[MAX_BUTTONS];
-        static double x, y;
 
         public:
+        static double x, y;
         static void actionCallback(GLFWwindow*, int, int, int);
         static void positionCallback(GLFWwindow*, double, double);
         static bool isButtonPressed(unsigned int);
