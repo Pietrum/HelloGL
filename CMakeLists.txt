@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.8)
 project(client)
 
 set(CMAKE_CXX_STANDARD 14)
-set(SOURCE_FILES main.cpp maths/Vec2.cpp maths/Vec2.h maths/Vec3.cpp maths/Vec3.h maths/Vec4.cpp maths/Vec4.h maths/Mat4.cpp maths/Mat4.h graphics/Window.cpp graphics/Window.h)
+set(SOURCE_FILES main.cpp maths/Vec2.cpp maths/Vec2.h maths/Vec3.cpp maths/Vec3.h maths/Vec4.cpp maths/Vec4.h maths/Mat4.cpp maths/Mat4.h graphics/Window.cpp graphics/Window.h utils/File.cpp utils/File.h)
 
 add_executable(client ${SOURCE_FILES})
 
