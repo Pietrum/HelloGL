@@ -24,6 +24,25 @@ Mat4 Mat4::identity(float v) {
     return matrix;
 }
 
+Mat4 Mat4::orthographic(float left, float right, float bottom, float top, float near, float far) {
+    Mat4 matrix = identity(1.0f);
+
+    // [ 2 / (r - l) |      0      |       0      | - (r + l) / (r - l) ]
+    // [     0       | 2 / (t - b) |       0      | - (t + b) / (t - b) ]
+    // [     0       |      0      | -2 / (f - n) | - (f + n) / (f - n) ]
+    // [     0       |      0      |       0      |          1          ]
+
+    matrix.c[0].x =  2.0f / (right - left);
+    matrix.c[1].y =  2.0f / (top - bottom);
+    matrix.c[2].z = -2.0f / (far - near);
+    matrix.c[3].x = -1.0f * (right + left) / (right - left);
+    matrix.c[3].y = -1.0f * (top + bottom) / (top - bottom);
+    matrix.c[3].z = -1.0f * (far + near) / (far - near);
+    matrix.c[3].w =  1.0f;
+
+    return matrix;
+}
+
 Mat4& Mat4::multiply(const Mat4& other) {
     // our result
     float result[MAT4_SIZE];

@@ -21,6 +21,10 @@ Shader::~Shader() {
     glDeleteProgram(m_ShaderID);
 }
 
+GLint Shader::getUniformLocation(const GLchar* name) {
+    return glGetUniformLocation(m_ShaderID, name);
+}
+
 GLuint Shader::compile(const char* shaderPath, GLuint shaderType) {
     // read shader source file
     const char* source = File::readFile(shaderPath);
@@ -41,7 +45,7 @@ GLuint Shader::compileStatus(GLuint compileID) {
         GLint errorLength;
         glGetShaderiv(compileID, GL_INFO_LOG_LENGTH, &errorLength);
         auto * errorMessage = new GLchar[errorLength + 1];
-        glGetShaderInfoLog(compileID, errorLength, NULL, errorMessage);
+        glGetShaderInfoLog(compileID, errorLength, nullptr, errorMessage);
         std::cout << "[" << compileID << "] Failed to compile shader!" << std::endl << errorMessage << std::endl;
         glDeleteShader(compileID);
 
@@ -53,4 +57,8 @@ GLuint Shader::compileStatus(GLuint compileID) {
 
 void Shader::enable() const {
     glUseProgram(m_ShaderID);
+}
+
+void Shader::setUniformMat4(const GLchar* name, const Mat4& matrix) {
+    glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, matrix.e);
 }

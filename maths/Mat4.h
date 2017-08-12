@@ -19,6 +19,7 @@ class Mat4 {
     Mat4();
 
     static Mat4 identity(float);
+    static Mat4 orthographic(float, float, float, float, float, float);
 
     Mat4& multiply(const Mat4&);
 };
