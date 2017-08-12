@@ -5,6 +5,9 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
+#include "../inputs/Keyboard.h"
+#include "../inputs/Mouse.h"
+
 namespace graphics {
 
     class Window {

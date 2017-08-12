@@ -37,6 +37,11 @@ namespace graphics {
         // make the window context current
         glfwMakeContextCurrent(m_Window);
 
+        // inputs
+        glfwSetKeyCallback(m_Window, Input::Keyboard::actionCallback);
+        glfwSetMouseButtonCallback(m_Window, Input::Mouse::actionCallback);
+        glfwSetCursorPosCallback(m_Window, Input::Mouse::positionCallback);
+
         // needed for core profile
         glewExperimental = GL_TRUE;
         // initialize the library
@@ -65,8 +70,9 @@ namespace graphics {
     }
 
     bool Window::closed() const {
-        return glfwGetKey(m_Window, GLFW_KEY_ESCAPE ) == GLFW_PRESS ||
-           glfwWindowShouldClose(m_Window) == GLFW_TRUE;
+        return glfwWindowShouldClose(m_Window) == GLFW_TRUE ||      // for test only
+            Input::Keyboard::isKeyPressed(GLFW_KEY_ESCAPE) ||       // exit after pressed ESC
+            Input::Mouse::isButtonPressed(GLFW_MOUSE_BUTTON_3);     // exit after scroll/middle button
     }
 
 }
