@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.8)
 project(client)
 
 set(CMAKE_CXX_STANDARD 14)
-set(SOURCE_FILES main.cpp)
+set(SOURCE_FILES main.cpp graphics/Window.cpp graphics/Window.h)
 
 add_executable(client ${SOURCE_FILES})
 
