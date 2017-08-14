@@ -3,10 +3,11 @@
 
 #include <string>
 
-class File {
-
+namespace utils {
+    class File {
     public:
-    static const char* readFile(const char* path);
-};
+        static const char *readFile(const char *path);
+    };
+}
 
 #endif //CLIENT_FILE_H

@@ -2,7 +2,19 @@ cmake_minimum_required(VERSION 3.8)
 project(client)
 
 set(CMAKE_CXX_STANDARD 14)
-set(SOURCE_FILES main.cpp maths/Vec2.cpp maths/Vec2.h maths/Vec3.cpp maths/Vec3.h maths/Vec4.cpp maths/Vec4.h maths/Mat4.cpp maths/Mat4.h graphics/Window.cpp graphics/Window.h graphics/Shader.cpp graphics/Shader.h utils/File.cpp utils/File.h inputs/Keyboard.cpp inputs/Keyboard.h inputs/Mouse.cpp inputs/Mouse.h)
+set(SOURCE_FILES main.cpp
+        src/graphics/Window.cpp src/graphics/Window.h
+        src/graphics/Shader.cpp src/graphics/Shader.h
+
+        src/maths/Vec2.cpp src/maths/Vec2.h
+        src/maths/Vec3.cpp src/maths/Vec3.h
+        src/maths/Vec4.cpp src/maths/Vec4.h
+        src/maths/Mat4.cpp src/maths/Mat4.h
+
+        src/inputs/Keyboard.cpp src/inputs/Keyboard.h
+        src/inputs/Mouse.cpp src/inputs/Mouse.h
+
+        src/utils/File.cpp src/utils/File.h)
 
 add_executable(client ${SOURCE_FILES})
 

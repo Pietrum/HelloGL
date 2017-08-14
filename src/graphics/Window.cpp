@@ -1,15 +1,14 @@
 #include "Window.h"
 
 namespace graphics {
-
     Window::Window(int width, int height, const char *title)
-        : m_Title(title), m_Width(width), m_Height(height) {
-            if (!init()) {
-                glfwTerminate();
-            };
+            : m_Title(title), m_Width(width), m_Height(height) {
+        if (!init()) {
+            glfwTerminate();
+        };
     }
 
-    Window::~Window () {
+    Window::~Window() {
         glfwTerminate();
     }
 
@@ -38,9 +37,9 @@ namespace graphics {
         glfwMakeContextCurrent(m_Window);
 
         // inputs
-        glfwSetKeyCallback(m_Window, Input::Keyboard::actionCallback);
-        glfwSetMouseButtonCallback(m_Window, Input::Mouse::actionCallback);
-        glfwSetCursorPosCallback(m_Window, Input::Mouse::positionCallback);
+        glfwSetKeyCallback(m_Window, Keyboard::actionCallback);
+        glfwSetMouseButtonCallback(m_Window, Mouse::actionCallback);
+        glfwSetCursorPosCallback(m_Window, Mouse::positionCallback);
 
         // needed for core profile
         glewExperimental = GL_TRUE;
@@ -71,8 +70,7 @@ namespace graphics {
 
     bool Window::closed() const {
         return glfwWindowShouldClose(m_Window) == GLFW_TRUE ||      // for test only
-            Input::Keyboard::isKeyPressed(GLFW_KEY_ESCAPE) ||       // exit after pressed ESC
-            Input::Mouse::isButtonPressed(GLFW_MOUSE_BUTTON_3);     // exit after scroll/middle button
+               Input::Keyboard::isKeyPressed(GLFW_KEY_ESCAPE) ||       // exit after pressed ESC
+               Input::Mouse::isButtonPressed(GLFW_MOUSE_BUTTON_3);     // exit after scroll/middle button
     }
-
 }

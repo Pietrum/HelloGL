@@ -1,12 +1,13 @@
-#include "graphics/Window.h"
-#include "graphics/Shader.h"
-#include "maths/Vec2.h"
-#include "maths/Vec3.h"
-#include "maths/Vec4.h"
-#include "maths/Mat4.h"
+#include "src/graphics/Window.h"
+#include "src/graphics/Shader.h"
+#include "src/maths/Vec2.h"
+#include "src/maths/Vec3.h"
+#include "src/maths/Vec4.h"
+#include "src/maths/Mat4.h"
 
 int main() {
     using namespace graphics;
+    using namespace maths;
 
     Window window(960, 540, "HelloGL");
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
@@ -26,7 +27,7 @@ int main() {
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices) + sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-    Shader shader("../utils/shaders/simple.vsh", "../utils/shaders/simple.fsh");
+    Shader shader("../src/utils/shaders/simple.vsh", "../src/utils/shaders/simple.fsh");
     auto positionId = (GLuint) glGetAttribLocation(shader.m_ShaderID, "position");
     glVertexAttribPointer(positionId, 3, GL_FLOAT, GL_FALSE, 0, nullptr);
     glEnableVertexAttribArray(positionId);

@@ -7,17 +7,15 @@
 #define MAX_BUTTONS 32
 
 namespace Input {
-
     class Mouse {
+    public: // make <- public
         static bool m_Buttons[MAX_BUTTONS];
-
-        public:
         static double x, y;
-        static void actionCallback(GLFWwindow*, int, int, int);
-        static void positionCallback(GLFWwindow*, double, double);
+    public:
+        static void actionCallback(GLFWwindow *, int, int, int);
+        static void positionCallback(GLFWwindow *, double, double);
         static bool isButtonPressed(unsigned int);
     };
-
 }
 
 #endif //CLIENT_MOUSE_H

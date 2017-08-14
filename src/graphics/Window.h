@@ -9,14 +9,15 @@
 #include "../inputs/Mouse.h"
 
 namespace graphics {
+    using namespace Input;
 
     class Window {
-        const char* m_Title;
+        const char *m_Title;
         int m_Width, m_Height;
-        GLFWwindow* m_Window;
+        GLFWwindow *m_Window;
 
-        public:
-        Window(int, int, const char*);
+    public:
+        Window(int, int, const char *);
         ~Window();
 
         bool init();
@@ -24,8 +25,6 @@ namespace graphics {
         void update() const;
         bool closed() const;
     };
-
 }
-
 
 #endif //CLIENT_WINDOW_H

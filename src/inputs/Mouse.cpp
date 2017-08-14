@@ -1,11 +1,10 @@
 #include "Mouse.h"
 
 namespace Input {
-
     bool Mouse::m_Buttons[MAX_BUTTONS];
     double Mouse::x, Mouse::y;
 
-    void Mouse::actionCallback(GLFWwindow* window, int button, int action, int mods) {
+    void Mouse::actionCallback(GLFWwindow *window, int button, int action, int mods) {
         m_Buttons[button] = action != GLFW_RELEASE;
     }
 
