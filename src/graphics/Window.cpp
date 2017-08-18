@@ -61,6 +61,10 @@ namespace graphics {
     }
 
     void Window::update() const {
+        GLenum error = glGetError();
+        if (error != GL_NO_ERROR)
+            std::cout << "OpenGL Error: " << error << std::endl;
+
         // swap front and back buffers
         glfwSwapBuffers(m_Window);
 
@@ -70,7 +74,7 @@ namespace graphics {
 
     bool Window::closed() const {
         return glfwWindowShouldClose(m_Window) == GLFW_TRUE ||      // for test only
-               Input::Keyboard::isKeyPressed(GLFW_KEY_ESCAPE) ||       // exit after pressed ESC
-               Input::Mouse::isButtonPressed(GLFW_MOUSE_BUTTON_3);     // exit after scroll/middle button
+               Input::Keyboard::isKeyPressed(GLFW_KEY_ESCAPE) ||    // exit after pressed ESC
+               Input::Mouse::isButtonPressed(GLFW_MOUSE_BUTTON_3);  // exit after scroll/middle button
     }
 }

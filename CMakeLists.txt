@@ -3,6 +3,22 @@ project(client)
 
 set(CMAKE_CXX_STANDARD 14)
 set(SOURCE_FILES main.cpp
+        src/graphics/buffers/iBuffer.h
+        src/graphics/buffers/IndexBuffer.cpp
+        src/graphics/buffers/IndexBuffer.h
+        src/graphics/buffers/VertexBuffer.cpp
+        src/graphics/buffers/VertexBuffer.h
+        src/graphics/buffers/VertexArray.cpp
+        src/graphics/buffers/VertexArray.h
+
+        src/graphics/renderers/iRenderer2D.h
+        src/graphics/renderers/BatchRenderer2D.cpp
+        src/graphics/renderers/BatchRenderer2D.h
+        src/graphics/renderers/Renderable2D.cpp
+        src/graphics/renderers/Renderable2D.h
+        src/graphics/renderers/Sprite2D.cpp
+        src/graphics/renderers/Sprite2D.h
+
         src/graphics/Window.cpp src/graphics/Window.h
         src/graphics/Shader.cpp src/graphics/Shader.h
 

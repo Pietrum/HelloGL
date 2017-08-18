@@ -39,7 +39,6 @@ namespace maths {
         matrix.c[3].x = -1.0f * (right + left) / (right - left);
         matrix.c[3].y = -1.0f * (top + bottom) / (top - bottom);
         matrix.c[3].z = -1.0f * (far + near) / (far - near);
-        matrix.c[3].w = 1.0f;
 
         return matrix;
     }
